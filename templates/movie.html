@@ -1,0 +1,27 @@
+$def with (movie, casts_url)
+$#import urllib
+<h4><a href="/">返回首页</a></h4>
+<h1>$movie.title</h1>
+<hr>
+<p align='center'><img src="/static/poster/$(movie.id).jpg"></p>
+<p>年代：$movie.year</p>
+<p>国家：$movie.countries</p>
+<p>链接：<a href="$movie.url" target="view_window">点击查看</a></p>
+<p>导演：$movie.directors</p>
+$ casts = movie.casts.split(',')
+$ count = len(casts)
+<p>主演：
+$for cast in casts:
+   <a href="/cast/?cast=$cast">$cast</a>
+</p>
+<p>主演：
+$for i in range(0,count):
+   	<a href="/casts/$casts_url[i]">$casts[i]</a>
+</p>
+<p>主演：
+$for cast in casts:
+   <a href="/castA/$cast">$cast</a>
+</p>
+<p>图片：$movie.image</p>
+<p>简介：$movie.summary</p>
+<img src="$movie.image">

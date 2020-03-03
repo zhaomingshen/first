@@ -1,0 +1,20 @@
+$def with (movies, num, key)
+<h4>欢迎来到</h4>
+<h1>Crossin's Movie Site</h1>
+<hr>
+<form action="/" method="post">
+	<input type="text" name="title" />
+	<input type="submit" value="搜索" />
+</form>
+$if num > 0:
+	<p>影片列表（共 $num 部
+	$if key:
+		与<b><u> $key </u></b>有关
+	）：</p>
+	$for movie in movies:
+		<li><a href="/movie/$movie['id']">$movie['title']</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="/movie/$movie['id']">$movie['countries']</a></li>
+$else:
+	<p>啊咧，没能找到
+		$if key:
+			与<b><u> $key </u></b>有关的影片</p>
+<p align='right'><a href="#top">返回顶部</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:window.scrollTo( 0, 0 );" >回到顶部</a></p>
